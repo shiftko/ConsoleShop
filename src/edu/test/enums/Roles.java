@@ -1,4 +1,4 @@
-package edu.test.entities.enums;
+package edu.test.enums;
 
 public enum Roles {
     ADMIN(1),

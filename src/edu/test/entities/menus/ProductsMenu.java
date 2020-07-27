@@ -1,11 +1,11 @@
 package edu.test.entities.menus;
 
-import edu.test.collections.Products;
-import edu.test.entities.enums.OrderStatus;
-import edu.test.entities.enums.ProductTypes;
+import edu.test.db_mock.Products;
 import edu.test.entities.menus.abs.AbsUserMenu;
 import edu.test.entities.menus.abs.Menu;
 import edu.test.entities.users.User;
+import edu.test.enums.OrderStatus;
+import edu.test.enums.ProductTypes;
 
 public class ProductsMenu extends AbsUserMenu {
     Products products;

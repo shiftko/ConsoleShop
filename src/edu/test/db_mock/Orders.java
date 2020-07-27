@@ -1,7 +1,7 @@
-package edu.test.collections;
+package edu.test.db_mock;
 
-import edu.test.entities.enums.ProductTypes;
 import edu.test.entities.orders.Order;
+import edu.test.enums.ProductTypes;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ final public class Orders {
     private static Orders instance;
     private static ArrayList<Order> orders = new ArrayList<>();
 
-    {
+    static {
         orders.add(new Order("ivan", "Milk", ProductTypes.FOOD, 2, true));
         orders.add(new Order("ivan", "Battery", ProductTypes.ELECTRONICS, 4, true));
         orders.add(new Order("ivan", "Battery", ProductTypes.ELECTRONICS, 4, false));
@@ -87,7 +87,7 @@ final public class Orders {
 
     private void updateOrder(Order order) throws Exception {
         int size = orders.size();
-        for (int i = 0; size > 1; i++) {
+        for (int i = 0; size > i; i++) {
             Order previousOrder = orders.get(i);
             if (previousOrder.equals(order)) {
                 orders.set(i, order);

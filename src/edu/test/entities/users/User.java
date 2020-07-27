@@ -1,6 +1,6 @@
 package edu.test.entities.users;
 
-import edu.test.entities.enums.Roles;
+import edu.test.enums.Roles;
 
 public class User {
     private String name;

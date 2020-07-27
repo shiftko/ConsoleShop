@@ -1,6 +1,6 @@
 package edu.test.entities.orders;
 
-import edu.test.entities.enums.ProductTypes;
+import edu.test.enums.ProductTypes;
 
 public class Order {
     String login;

@@ -1,7 +1,7 @@
-package edu.test.collections;
+package edu.test.db_mock;
 
-import edu.test.entities.enums.Roles;
 import edu.test.entities.users.User;
+import edu.test.enums.Roles;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ final public class Users {
     private static Users instance;
     private static ArrayList<User> users = new ArrayList<>();
 
-    {
+    static {
         users.add(new User("Ivan", "test", Roles.ADMIN, 34));
         users.add(new User("Olga", "test", Roles.USER, 32));
         users.add(new User("Roman", "test", Roles.USER, 7));

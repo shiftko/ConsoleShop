@@ -1,6 +1,6 @@
 package edu.test.entities.menus;
 
-import edu.test.collections.Users;
+import edu.test.db_mock.Users;
 import edu.test.entities.menus.abs.Menu;
 import edu.test.entities.users.User;
 
@@ -15,7 +15,7 @@ public class InitialMenu extends Menu {
     }
 
     @Override
-    protected void handleCallbacks() throws Exception {
+    protected void handleCallbacks() {
 
     }
 
@@ -56,7 +56,6 @@ public class InitialMenu extends Menu {
         return switch (user.getRole()) {
             case ADMIN -> new AdminMenu(user, this);
             case USER -> new UserMenu(user, this);
-            default -> throw new Exception("Undefined user role");
         };
     }
 }

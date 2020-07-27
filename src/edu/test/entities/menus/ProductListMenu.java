@@ -1,6 +1,6 @@
 package edu.test.entities.menus;
 
-import edu.test.collections.Products;
+import edu.test.db_mock.Products;
 import edu.test.entities.menus.abs.AbsUserMenu;
 import edu.test.entities.menus.abs.Menu;
 import edu.test.entities.users.User;

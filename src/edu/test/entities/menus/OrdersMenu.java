@@ -1,10 +1,10 @@
 package edu.test.entities.menus;
 
-import edu.test.entities.enums.OrderStatus;
 import edu.test.entities.menus.abs.AbsUserMenu;
 import edu.test.entities.menus.abs.Menu;
 import edu.test.entities.orders.Order;
 import edu.test.entities.users.User;
+import edu.test.enums.OrderStatus;
 
 import java.util.ArrayList;
 
