@@ -1,7 +1,7 @@
 package edu.test.db_mock;
 
 import edu.test.entities.products.Product;
-import edu.test.enums.ProductTypes;
+import edu.test.db_mock.enums.ProductTypes;
 
 import java.util.ArrayList;
 

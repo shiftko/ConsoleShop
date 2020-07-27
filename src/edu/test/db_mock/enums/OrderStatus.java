@@ -1,4 +1,4 @@
-package edu.test.enums;
+package edu.test.db_mock.enums;
 
 public enum OrderStatus {
     IN_CART(true, "In cart"),

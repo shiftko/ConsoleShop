@@ -4,7 +4,7 @@ import edu.test.entities.menus.abs.AbsUserMenu;
 import edu.test.entities.menus.abs.Menu;
 import edu.test.entities.orders.Order;
 import edu.test.entities.users.User;
-import edu.test.enums.OrderStatus;
+import edu.test.db_mock.enums.OrderStatus;
 
 import java.util.ArrayList;
 
@@ -13,9 +13,15 @@ public class OrdersMenu extends AbsUserMenu {
     protected OrdersMenu(User user, Menu prevMenu) {
         super(user, prevMenu);
 
+        setSubMenuItem("-1.back");
+    }
+
+    @Override
+    protected void handleCallbacks() throws Exception {
+        super.handleCallbacks();
+        resetMainMenuItem();
         showClosedOrdersInfo();
         showOrdersInCartInfo();
-        setSubMenuItem("-1.back");
     }
 
     @Override

@@ -4,7 +4,7 @@ import edu.test.entities.menus.abs.AbsUserMenu;
 import edu.test.entities.menus.abs.Menu;
 import edu.test.entities.orders.Order;
 import edu.test.entities.users.User;
-import edu.test.enums.OrderStatus;
+import edu.test.db_mock.enums.OrderStatus;
 
 import java.util.ArrayList;
 
@@ -16,8 +16,13 @@ public class OrdersListMenu extends AbsUserMenu {
         this.status = status;
 
         setMenuNamePrefix(status.getDescription());
-        compileOrdersListMenu();
         setSubMenuItem("-1.back");
+    }
+
+    @Override
+    protected void handleCallbacks() throws Exception {
+        super.handleCallbacks();
+        compileOrdersListMenu();
     }
 
     @Override
@@ -31,12 +36,17 @@ public class OrdersListMenu extends AbsUserMenu {
     }
 
     private void compileOrdersListMenu() {
+        resetMainMenuItem();
         ArrayList<Order> ordersList = getOrderList();
         int size = ordersList.size();
-        for (int i = 0; size > i; i++) {
-            int menuItemIndex = i + 1;
-            Order order = ordersList.get(i);
-            setMainMenuItem(menuItemIndex + "." + order.getProductName() + "/" + order.getProductType().name().toLowerCase() + "/" + order.getQuantity());
+        if (size > 0) {
+            for (int i = 0; size > i; i++) {
+                int menuItemIndex = i + 1;
+                Order order = ordersList.get(i);
+                setMainMenuItem(menuItemIndex + "." + order.getProductName() + "/" + order.getProductType().name().toLowerCase() + "/" + order.getQuantity());
+            }
+        } else {
+            setMainMenuItem("There are no orders in the cart");
         }
     }
 

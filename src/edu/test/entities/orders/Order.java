@@ -1,20 +1,31 @@
 package edu.test.entities.orders;
 
-import edu.test.enums.ProductTypes;
+import edu.test.db_mock.enums.OrderEditStatus;
+import edu.test.db_mock.enums.OrderStatus;
+import edu.test.db_mock.enums.ProductTypes;
 
 public class Order {
     String login;
     String productName;
     ProductTypes productType;
     int quantity;
-    boolean inCart;
+    OrderStatus orderStatus;
+    OrderEditStatus editStatus;
 
-    public Order(String login, String productName, ProductTypes productType, int quantity, boolean inCart) {
+    public Order(
+            String login
+            , String productName
+            , ProductTypes productType
+            , int quantity
+            , OrderStatus orderStatus
+            , OrderEditStatus editStatus
+    ) {
         this.login = login;
         this.productName = productName;
         this.productType = productType;
         this.quantity = quantity;
-        this.inCart = inCart;
+        this.orderStatus = orderStatus;
+        this.editStatus = editStatus;
     }
 
     public String getLogin() {
@@ -33,15 +44,23 @@ public class Order {
         return quantity;
     }
 
-    public boolean isInCart() {
-        return inCart;
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public OrderEditStatus getEditStatus() {
+        return editStatus;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public void setInCart(boolean inCart) {
-        this.inCart = inCart;
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public void setEditStatus(OrderEditStatus editStatus) {
+        this.editStatus = editStatus;
     }
 }

@@ -1,6 +1,6 @@
 package edu.test.entities.users;
 
-import edu.test.enums.Roles;
+import edu.test.db_mock.enums.Roles;
 
 public class User {
     private String name;
