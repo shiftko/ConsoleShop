@@ -1,16 +1,15 @@
-package edu.test.collections;
+package edu.test.db_mock;
 
-import edu.test.entities.enums.ProductTypes;
 import edu.test.entities.products.Product;
+import edu.test.enums.ProductTypes;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 final public class Products {
     private static Products instance;
     private static ArrayList<Product> products = new ArrayList<>();
 
-    {
+    static {
         products.add(new Product("Milk", ProductTypes.FOOD, 25.25, 34));
         products.add(new Product("Bread", ProductTypes.FOOD, 12.75, 32));
         products.add(new Product("Battery", ProductTypes.ELECTRONICS, 16.15, 100));

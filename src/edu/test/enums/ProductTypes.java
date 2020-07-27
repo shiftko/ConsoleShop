@@ -1,4 +1,4 @@
-package edu.test.entities.enums;
+package edu.test.enums;
 
 public enum ProductTypes {
     FOOD(1),

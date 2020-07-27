@@ -1,6 +1,6 @@
 package edu.test.entities.menus.abs;
 
-import edu.test.collections.Orders;
+import edu.test.db_mock.Orders;
 import edu.test.entities.orders.Order;
 import edu.test.entities.users.User;
 
@@ -18,7 +18,7 @@ public abstract class AbsUserMenu extends Menu {
     }
 
     @Override
-    protected void handleCallbacks() throws Exception {
+    protected void handleCallbacks() {
         showOrdersInCartDetailedInfo();
     }
 

@@ -1,6 +1,6 @@
 package edu.test.entities.products;
 
-import edu.test.entities.enums.ProductTypes;
+import edu.test.enums.ProductTypes;
 
 public class Product {
     private String name;

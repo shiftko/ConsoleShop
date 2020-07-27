@@ -1,6 +1,6 @@
 package edu.test.entities.menus.abs;
 
-import edu.test.entities.enums.ProductTypes;
+import edu.test.enums.ProductTypes;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,6 +16,7 @@ abstract public class Menu {
 
     private String menuName = "";
     private String menuNamePrefix = "";
+    private String menuNameSuffix = "";
     private String menuDelimiter = "";
     private String menuEnding = "";
     private String menu = "";
@@ -44,9 +45,15 @@ abstract public class Menu {
 
     private void setMenuPartials() {
         if (menuNamePrefix.trim().length() > 0) {
-            menuName = "--> " + menuNamePrefix + ": " + this.getClass().getSimpleName() + " <--";
+            menuName = "--> " + menuNamePrefix + ": " + this.getClass().getSimpleName();
         } else {
-            menuName = "--> " + this.getClass().getSimpleName() + " <--";
+            menuName = "--> " + this.getClass().getSimpleName();
+        }
+
+        if (menuNameSuffix.trim().length() > 0) {
+            menuName += ": " + menuNameSuffix + " <--";
+        } else {
+            menuName += " <--";
         }
 
         menuEnding = "";
@@ -60,6 +67,10 @@ abstract public class Menu {
 
     protected void setMenuNamePrefix(String prefix) {
         menuNamePrefix = prefix;
+    }
+
+    protected void setMenuNameSuffix(String suffix) {
+        menuNameSuffix = suffix;
     }
 
     private void compileMenu() {
@@ -122,7 +133,7 @@ abstract public class Menu {
         return scanner.nextLine().trim();
     }
 
-    protected ProductTypes getProductType() throws Exception {
+    protected ProductTypes getProductType() {
         String availableTypes = "Available types are: ";
         for (ProductTypes type : ProductTypes.values()) {
             availableTypes += type.name().toLowerCase() + ", ";
