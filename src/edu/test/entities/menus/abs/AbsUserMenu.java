@@ -18,7 +18,7 @@ public abstract class AbsUserMenu extends Menu {
     }
 
     @Override
-    protected void handleCallbacks() {
+    protected void handleCallbacks() throws Exception {
         showOrdersInCartDetailedInfo();
     }
 

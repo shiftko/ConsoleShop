@@ -1,6 +1,6 @@
 package edu.test.entities.products;
 
-import edu.test.enums.ProductTypes;
+import edu.test.db_mock.enums.ProductTypes;
 
 public class Product {
     private String name;

@@ -4,7 +4,7 @@ import edu.test.entities.menus.abs.AbsUserMenu;
 import edu.test.entities.menus.abs.Menu;
 import edu.test.entities.orders.Order;
 import edu.test.entities.users.User;
-import edu.test.enums.OrderStatus;
+import edu.test.db_mock.enums.OrderStatus;
 
 class ClosedOrderMenu extends AbsUserMenu {
     final OrderStatus status = OrderStatus.CLOSED;
@@ -16,6 +16,7 @@ class ClosedOrderMenu extends AbsUserMenu {
 
         setMenuNameSuffix(order.getProductName() + "/" + order.getProductType().name().toLowerCase() + "/" + order.getQuantity());
 
+        setMainMenuItem("You cannot interact with closed orders");
         setSubMenuItem("-1.back");
     }
 

@@ -1,6 +1,6 @@
 package edu.test.entities.menus.abs;
 
-import edu.test.enums.ProductTypes;
+import edu.test.db_mock.enums.ProductTypes;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -37,6 +37,10 @@ abstract public class Menu {
 
     protected void resetInformationField() {
         informationFieldItems.clear();
+    }
+
+    protected void resetMainMenuItem() {
+        mainItems.clear();
     }
 
     protected void setInformationFieldItem(String item) {
@@ -151,6 +155,15 @@ abstract public class Menu {
 
     protected int getAge() throws Exception {
         System.out.print("Age: ");
+        try {
+            return Integer.parseInt(scanner.nextLine().trim());
+        } catch (Exception e) {
+            throw new Exception("Error getting user age, the age must be a number");
+        }
+    }
+
+    protected int getProductQuantity() throws Exception {
+        System.out.print("New quantity: ");
         try {
             return Integer.parseInt(scanner.nextLine().trim());
         } catch (Exception e) {

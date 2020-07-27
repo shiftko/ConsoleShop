@@ -4,7 +4,8 @@ import edu.test.entities.menus.abs.AbsUserMenu;
 import edu.test.entities.menus.abs.Menu;
 import edu.test.entities.orders.Order;
 import edu.test.entities.users.User;
-import edu.test.enums.OrderStatus;
+import edu.test.db_mock.enums.OrderEditStatus;
+import edu.test.db_mock.enums.OrderStatus;
 
 class InCartOrderMenu extends AbsUserMenu {
     final OrderStatus status = OrderStatus.IN_CART;
@@ -23,9 +24,24 @@ class InCartOrderMenu extends AbsUserMenu {
     }
 
     @Override
+    protected void handleCallbacks() throws Exception {
+        super.handleCallbacks();
+        updateOrderInfo();
+    }
+
+    private void updateOrderInfo() throws Exception {
+        if (orders.checkIfActiveOrderExists(order.getLogin(), order.getProductName(), order.getProductType())) {
+            Order updatedOrder = orders.getOrder(order.getLogin(), order.getProductName(), order.getProductType());
+            setMenuNameSuffix(updatedOrder.getProductName() + "/" + updatedOrder.getProductType().name().toLowerCase() + "/" + updatedOrder.getQuantity());
+        } else {
+            prevMenu.run();
+        }
+    }
+
+    @Override
     protected void navigation() throws Exception {
         switch (getMenuItem()) {
-            case 1 -> changeOrderQuantity();
+            case 1 -> changeProductQuantity();
             case 2 -> confirmOrder();
             case 3 -> deleteOrder();
             case 0 -> System.exit(0);
@@ -34,15 +50,17 @@ class InCartOrderMenu extends AbsUserMenu {
         }
     }
 
-    private void changeOrderQuantity() {
-
+    private void changeProductQuantity() throws Exception {
+        int quantity = getProductQuantity();
+        order.setQuantity(quantity);
+        orders.updateOrder(order);
     }
 
     private void confirmOrder() {
-
+        order.setEditStatus(OrderEditStatus.EDITABLE);
     }
 
-    private void deleteOrder() {
-
+    private void deleteOrder() throws Exception {
+        orders.deleteOrder(order);
     }
 }

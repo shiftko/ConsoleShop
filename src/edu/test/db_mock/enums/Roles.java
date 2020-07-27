@@ -1,4 +1,4 @@
-package edu.test.enums;
+package edu.test.db_mock.enums;
 
 public enum Roles {
     ADMIN(1),
