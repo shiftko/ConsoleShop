@@ -32,7 +32,12 @@ class InCartOrderMenu extends AbsUserMenu {
     private void updateOrderInfo() throws Exception {
         if (orders.checkIfActiveOrderExists(order.getLogin(), order.getProductName(), order.getProductType())) {
             Order updatedOrder = orders.getOrder(order.getLogin(), order.getProductName(), order.getProductType());
-            setMenuNameSuffix(updatedOrder.getProductName() + "/" + updatedOrder.getProductType().name().toLowerCase() + "/" + updatedOrder.getQuantity());
+            setMenuNameSuffix(
+                    updatedOrder.getProductName() + "/"
+                            + updatedOrder.getProductType().name().toLowerCase() + "/"
+                            + updatedOrder.getQuantity() + "/"
+                            + order.getEditStatus().name()
+            );
         } else {
             prevMenu.run();
         }
@@ -57,7 +62,7 @@ class InCartOrderMenu extends AbsUserMenu {
     }
 
     private void confirmOrder() {
-        order.setEditStatus(OrderEditStatus.EDITABLE);
+        order.setEditStatus(OrderEditStatus.COMPLETED);
     }
 
     private void deleteOrder() throws Exception {

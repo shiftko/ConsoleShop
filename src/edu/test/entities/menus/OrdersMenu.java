@@ -36,16 +36,20 @@ public class OrdersMenu extends AbsUserMenu {
     }
 
     private void showClosedOrdersInfo() {
-        ArrayList<Order> ordersInCart = orders.getClosedOrdersByUser(user.getName());
-        if (ordersInCart.size() > 0) {
-            setMainMenuItem("1.View closed order(s) / " + ordersInCart.size());
+        ArrayList<Order> closedOrders = orders.getClosedOrdersByUser(user.getName());
+        if (closedOrders.size() > 0) {
+            setMainMenuItem("1.View closed order(s) / amount:" + closedOrders.size());
+        } else {
+            setMainMenuItem("x.You have no closed order(s)");
         }
     }
 
     private void showOrdersInCartInfo() {
         ArrayList<Order> ordersInCart = orders.getOrdersInCartByUser(user.getName());
         if (ordersInCart.size() > 0) {
-            setMainMenuItem("2.View order(s) in the cart / " + ordersInCart.size());
+            setMainMenuItem("2.View order(s) in the cart / amount:" + ordersInCart.size());
+        } else {
+            setMainMenuItem("x.You have no order(s) in the cart");
         }
     }
 

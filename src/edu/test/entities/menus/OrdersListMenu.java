@@ -43,7 +43,13 @@ public class OrdersListMenu extends AbsUserMenu {
             for (int i = 0; size > i; i++) {
                 int menuItemIndex = i + 1;
                 Order order = ordersList.get(i);
-                setMainMenuItem(menuItemIndex + "." + order.getProductName() + "/" + order.getProductType().name().toLowerCase() + "/" + order.getQuantity());
+                setMainMenuItem(
+                        menuItemIndex + "."
+                                + order.getProductName() + "/"
+                                + order.getProductType().name().toLowerCase() + "/"
+                                + order.getQuantity() + "/"
+                                + order.getEditStatus().name()
+                );
             }
         } else {
             setMainMenuItem("There are no orders in the cart");
