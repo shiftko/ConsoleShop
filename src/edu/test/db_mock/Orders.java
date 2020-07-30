@@ -1,6 +1,6 @@
 package edu.test.db_mock;
 
-import edu.test.entities.orders.Order;
+import edu.test.entities.models.orders.Order;
 import edu.test.db_mock.enums.OrderEditStatus;
 import edu.test.db_mock.enums.OrderStatus;
 import edu.test.db_mock.enums.ProductTypes;

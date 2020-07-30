@@ -1,6 +1,6 @@
 package edu.test;
 
-import edu.test.entities.menus.InitialMenu;
+import edu.test.entities.views.InitialMenu;
 
 public class Application {
     InitialMenu initialMenu;
